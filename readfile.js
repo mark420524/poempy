@@ -13,8 +13,25 @@ var readFile=function (filename,callback){
 }
 
 var readcb=function(arr){
-	console.log(arr.length);
-	console.log(arr[0])
+	let length=arr.length;
+	for (let i=0;i<3;i++) {
+		let random=randomNum(1,length)
+		console.log(arr[random])
+	}
+	 
+}
+var randomNum=function (minNum,maxNum){ 
+    switch(arguments.length){ 
+        case 1: 
+            return parseInt(Math.random()*minNum+1,10); 
+        break; 
+        case 2: 
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+        break; 
+            default: 
+                return 0; 
+            break; 
+    } 
 }
 let filename="poemall.txt";
 readFile(filename,readcb)
