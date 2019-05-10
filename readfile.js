@@ -1,5 +1,23 @@
 const fs=require('fs');
 const readline=require('readline');
+
+/**node schedule */
+const schedule = require('node-schedule');
+
+
+ 
+
+schedule.scheduleJob('1111job','*/2 * * * * *', function(){
+  console.log('1111');
+});
+ 
+setTimeout(function(){
+	console.log('cancel 1111job')
+	schedule.cancelJob('1111job')
+},5000)
+
+
+
 var readFile=function (filename,callback){
 	let fileRead=fs.createReadStream(filename);
 	let contentReadLine=readline.createInterface({input:fileRead});
